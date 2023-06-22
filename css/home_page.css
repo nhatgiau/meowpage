@@ -1,0 +1,326 @@
+#CORESTYLES
+:root {
+    --primary-color: #0b1522;
+    --overlay-color: #39556cd9;
+    --menu-speed: 0.75s;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    background: var(--primary-color);
+    line-height: 1.4;
+}
+  
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 3rem;
+}
+  
+.showcase {
+    
+    font-family: 'Pacifico', cursive;
+    background: var(--primary-color);
+    color: #fff;
+    height: 50vh;
+    position: relative;
+}
+  
+.showcase:before {
+    content: '';
+    background: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+  
+.showcase .showcase-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+  
+.showcase h1 {
+    font-size: 4rem;
+}
+  
+.showcase p {
+    font-size: 1.3rem;
+}
+  
+.btn {
+    display: inline-block;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    transition: opacity 1s ease-in-out;
+    text-decoration: none;
+}
+  
+.btn:hover {
+    opacity: 0.7;
+}
+  
+/* MENU STYLES */
+.menu-wrap {
+    font-family: 'Pacifico', cursive;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+  
+.menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+  
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+  
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+    top: 10px;
+}
+  
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+  
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+  
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+}
+  
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+  
+.menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+}
+  
+.menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition:  opacity 0.4s ease 0.4s;
+}
+  
+.menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.menu-wrap .menu > div {
+    background: var(--overlay-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+  
+.menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: 0.5 0.4s ease;
+}
+  
+.menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+  
+.menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+  
+section{
+    background-color: var(--primary-color);
+    display: grid;
+    place-items: center;
+    align-items: center;
+    min-height: 10vh;
+}
+.paw-1 {
+    transform: rotate(20deg) translateY(-20px);
+    animation: show 2s ease-in-out infinite;
+    animation-delay: 1s;
+}
+  
+.paw-2 {
+    transform: rotate(20deg) translateY(-40px);
+    animation: show 2s ease-in-out infinite;
+    animation-delay: 1s;
+}
+  
+.paw-3 {
+    transform: rotate(20deg) translate(-60px,-60px);
+    animation: show 2s ease-in-out infinite;
+    animation-delay: 1s;
+}
+.heart{
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 0.6s linear infinite;
+}
+
+@keyframes heart {
+    0%{
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80%{
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100%{
+        transform: rotate(-45deg) scale(0.8);
+    }
+    
+}
+
+.heart::before{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    top: -50%;
+    border-radius: 50px;
+}
+.heart::after{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    right: -50%;
+    border-radius: 50px;
+}
+.datouwang {
+    font-size: 4vmin;
+    position: relative;
+    filter: drop-shadow(0 0 1em cyan);
+    height: 14em;
+    animation: swim 10s ease-in-out infinite;
+    transform-origin: 50% 0;
+    transform: translateY(3em);
+    margin: 10px auto;
+    width: 200px;
+  }
+  .datouwang .arms {
+    transform-origin: 50% 0;
+    animation: squash 10s ease-in-out infinite;
+  }
+  .datouwang .arms .arm {
+    position: absolute;
+    width: 2em;
+    height: 6em;
+    top: 3em;
+    border-radius: 50%;
+    border-left: 1em solid #ccffff;
+    border-bottom: 0.3em solid transparent;
+    transform-origin: 50% 0;
+    opacity: 0.4;
+    transform: scaleX(var(--scaleX)) scaleY(var(--scaleY)) rotate(calc(var(--rotate) * 1deg));
+    animation: wave 10s ease-in-out infinite;
+  }
+  .datouwang .arms .arm:before {
+    content: '';
+    position: absolute;
+    width: 1.6em;
+    height: 3em;
+    top: 5.1em;
+    left: -1.5em;
+    border-radius: 50%;
+    border-right: 0.6em solid #ccffff;
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.3em solid transparent;
+    transform: rotate(-10.4deg);
+  }                        
